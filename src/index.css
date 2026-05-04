@@ -827,18 +827,19 @@ td button { margin-right: 5px; padding: 6px 10px; min-height: 36px; font-size: 1
 /* Image */
 .modal-image-wrapper {
   width: 100%;
-  max-height: 380px;
+  height: 260px;
   background: white;
-  overflow: hidden;
   display: flex;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
 }
 
 .modal-image-wrapper img {
   width: 100%;
-  max-height: 380px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
 }
 
 /* Info section */
@@ -934,6 +935,35 @@ td button { margin-right: 5px; padding: 6px 10px; min-height: 36px; font-size: 1
   font-weight: 700;
   margin: 0 0 12px;
   color: #1a1a1a;
+}
+
+/* ── Responsive ── */
+@media (min-width: 480px) {
+  .modal-image-wrapper { height: 320px; }
+}
+
+@media (min-width: 768px) {
+  .modal-image-wrapper { height: 420px; }
+}
+
+@media (min-width: 1024px) {
+  .modal-image-wrapper {
+    height: 500px;
+    max-width: 700px;
+    margin: 0 auto;
+    border-radius: 12px;
+  }
+
+  .modal-info {
+    max-width: 700px;
+    margin: 0 auto 10px;
+    border-radius: 12px;
+  }
+
+  .modal-similar {
+    max-width: 700px;
+    margin: 0 auto;
+  }
 }
 
 
