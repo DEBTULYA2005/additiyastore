@@ -30,7 +30,7 @@ const slides = [
 const themes = {
   purple: { bg: "#ffec46", title: "#8e24aa", btn: "#8e24aa" },
   blue:   { bg: "#e0f2fe", title: "#1565c0", btn: "#1565c0" },
-  red:    { bg: "#fce7e7", title: "#c62828", btn: "#c62828" },
+  red:    { bg: "#fce7e7", title: "#2de96b", btn: "#22d86e" },
 };
 
 export default function Banner() {
