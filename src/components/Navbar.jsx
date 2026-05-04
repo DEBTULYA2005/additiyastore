@@ -25,7 +25,7 @@ export default function Navbar({
     setMenuOpen(false);
   };
 
-  const categories = ["All", "Sharee", "Kurti", "Dupatta Sets", "Sleepwear", "Lehengas", "Blouses"];
+  const categories = ["All", "Sharee", "Kurti", "Skirt Top", "Plazzo Top", "Cord Set", "Biyer Kulo", "Biyer Mukut", "Gachkouto"];
 
   return (
     <>
