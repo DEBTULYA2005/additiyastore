@@ -778,16 +778,28 @@ td button { margin-right: 5px; padding: 6px 10px; min-height: 36px; font-size: 1
   z-index: 3000;
   background: rgba(0, 0, 0, 0.5);
   display: flex;
-  flex-direction: column;
-  overflow-y: auto;
+  justify-content: center;
+  align-items: flex-start;
+  overflow: hidden;   /* ❗ important */
 }
 
 .modal-fullscreen-inner {
-  min-height: 100dvh;
   width: 100%;
+  max-width: 800px;
+  height: 100vh;
   background: #f4f6f8;
-  display: flex;
-  flex-direction: column;
+  overflow-y: auto;   /* ✅ scroll inside modal */
+}
+
+.modal-similar .product-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  padding: 0;
+}
+
+.modal-similar {
+  overflow: hidden;   /* ❗ prevents leaking */
 }
 
 /* Header */
