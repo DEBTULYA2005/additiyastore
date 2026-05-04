@@ -1,4 +1,4 @@
-export default function ProductList({ products, addToCart }) {
+export default function ProductList({ products, addToCart, admin }) {
   return (
     <div className="product-grid">
       {products.map((p) => (
@@ -23,9 +23,11 @@ export default function ProductList({ products, addToCart }) {
             <span className="reviews">No Reviews</span>
           </div>
 
-          <button onClick={() => addToCart(p)}>
-            Add to Cart
-          </button>
+          {!admin && (
+            <button onClick={() => addToCart(p)}>
+              Add to Cart
+            </button>
+          )}
 
         </div>
       ))}
