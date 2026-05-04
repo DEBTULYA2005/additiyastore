@@ -51,7 +51,6 @@ export default function ProductModal({ product, products, onClose, addToCart, ad
         {/* Similar Products */}
         {similar.length > 0 && (
           <div className="modal-similar">
-            <h3>Similar Products</h3>
             <div className="product-grid">
               {similar.map((p) => (
                 <div
