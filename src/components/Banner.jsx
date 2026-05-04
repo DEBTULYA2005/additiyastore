@@ -18,11 +18,11 @@ const slides = [
     theme: "blue",
   },
   {
-    tag: "Exclusive deal",
-    title: "Flash Sale 🔥",
-    desc: "Up to 40% off — today only",
+    tag: "Bridal Glow-Up",
+    title: "Viral Wedding Accessories!",
+    desc: "Steal the spotlight on your big day ✨",
     btn: "Grab Now",
-    badge: "40%",
+    badge: "20%",
     theme: "red",
   },
 ];
@@ -30,7 +30,7 @@ const slides = [
 const themes = {
   purple: { bg: "#ffec46", title: "#8e24aa", btn: "#8e24aa" },
   blue:   { bg: "#ffdba6", title: "#1565c0", btn: "#1565c0" },
-  red:    { bg: "#ffc3c3", title: "#2de96b", btn: "#22d86e" },
+  red:    { bg: "#ffe07b", title: "#e92d5c", btn: "#d82277" },
 };
 
 export default function Banner() {
