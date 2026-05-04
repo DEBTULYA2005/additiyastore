@@ -23,7 +23,7 @@ export default function Admin({ products, setProducts, admin }) {
   const token = localStorage.getItem("token");
   if (!token) return;  // 👈 don't fetch if no token
 
-  fetch("http://localhost:8000/api/store/users/", {
+  fetch("https://additiyastore-backend.onrender.com/api/store/users/", {
     headers: { "Authorization": `Token ${token}` },
   })
     .then((res) => res.json())
@@ -60,7 +60,7 @@ export default function Admin({ products, setProducts, admin }) {
     formData.append("category", form.category);
     if (imageFile) formData.append("image", imageFile);
 
-    const res = await fetch("http://localhost:8000/api/store/products/manage/", {
+    const res = await fetch("https://additiyastore-backend.onrender.com/api/store/products/manage/", {
       method: "POST",
       headers: { "Authorization": `Token ${token}` },
       body: formData,
@@ -98,7 +98,7 @@ export default function Admin({ products, setProducts, admin }) {
     formData.append("category", form.category);
     if (imageFile) formData.append("image", imageFile);
 
-    const res = await fetch(`http://localhost:8000/api/store/products/manage/${currentProduct.id}/`, {
+    const res = await fetch(`https://additiyastore-backend.onrender.com/api/store/products/manage/${currentProduct.id}/`, {
       method: "PUT",
       headers: { "Authorization": `Token ${token}` },
       body: formData,
@@ -120,7 +120,7 @@ export default function Admin({ products, setProducts, admin }) {
   // ================= DELETE PRODUCT =================
   const handleDelete = async (id) => {
     const token = localStorage.getItem("token");
-    const res = await fetch(`http://localhost:8000/api/store/products/manage/${id}/`, {
+    const res = await fetch(`https://additiyastore-backend.onrender.com/api/store/products/manage/${id}/`, {
       method: "DELETE",
       headers: { "Authorization": `Token ${token}` },
     });

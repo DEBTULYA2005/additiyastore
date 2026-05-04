@@ -1,4 +1,4 @@
-const BASE_URL = "http://localhost:8000/api/store";
+const BASE_URL = "https://additiyastore-backend.onrender.com/api/store";
 
 // helper to get token from localStorage
 const getToken = () => localStorage.getItem("token");
