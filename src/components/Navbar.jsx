@@ -9,13 +9,13 @@ export default function Navbar({
   setUser,
   setShowAuth,
   setShowAdminLogin,
+  onLogout,
+  admin,
 }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleLogout = async () => {
-    await logoutUser();
-    setUser(null);
-    setPage("home");
+    await onLogout();
     setMenuOpen(false);
   };
 
@@ -45,31 +45,30 @@ export default function Navbar({
           ))}
         </div>
 
-        {/* RIGHT — action buttons (desktop) + hamburger (mobile) */}
+        {/* RIGHT — desktop buttons + hamburger */}
         <div className="nav-right">
-          {/* Desktop buttons */}
           <div className="nav-desktop-actions">
-            <button className="admin-btn" onClick={() => setShowAdminLogin(true)}>
-              ADMIN
-            </button>
+
+            {/* Show badge if admin logged in, otherwise show ADMIN button */}
+            {admin ? (
+              <span className="admin-badge">
+                👑 {admin.username}
+              </span>
+            ) : (
+              <button className="admin-btn" onClick={() => setShowAdminLogin(true)}>
+                ADMIN
+              </button>
+            )}
 
             {user ? (
               <>
-                <button className="action-btn" onClick={() => setPage("account")}>
-                  Account
-                </button>
-                <button className="action-btn" onClick={handleLogout}>
-                  Logout
-                </button>
+                <button className="action-btn" onClick={() => setPage("account")}>Account</button>
+                <button className="action-btn" onClick={handleLogout}>Logout</button>
               </>
             ) : (
               <>
-                <button className="action-btn" onClick={() => setPage("account")}>
-                  Account
-                </button>
-                <button className="action-btn" onClick={() => setShowAuth(true)}>
-                  Login
-                </button>
+                <button className="action-btn" onClick={() => setPage("account")}>Account</button>
+                <button className="action-btn" onClick={() => setShowAuth(true)}>Login</button>
               </>
             )}
           </div>
@@ -80,9 +79,7 @@ export default function Navbar({
             onClick={() => setMenuOpen(!menuOpen)}
             aria-label="Toggle menu"
           >
-            <span />
-            <span />
-            <span />
+            <span /><span /><span />
           </button>
         </div>
       </div>
@@ -90,6 +87,14 @@ export default function Navbar({
       {/* MOBILE DRAWER */}
       {menuOpen && (
         <div className="mobile-drawer">
+
+          {/* Admin banner at top of drawer */}
+          {admin && (
+            <div className="drawer-admin-banner">
+              👑 Admin: <strong>{admin.username}</strong>
+            </div>
+          )}
+
           {/* Categories */}
           <div className="drawer-section">
             <p className="drawer-label">Categories</p>
@@ -100,20 +105,30 @@ export default function Navbar({
             ))}
           </div>
 
-          {/* Divider */}
           <div className="drawer-divider" />
 
           {/* Account actions */}
           <div className="drawer-section">
-            <button className="drawer-item" onClick={() => { setShowAdminLogin(true); setMenuOpen(false); }}>
-              🔐 Admin Login
-            </button>
+            {!admin && (
+              <button className="drawer-item" onClick={() => { setShowAdminLogin(true); setMenuOpen(false); }}>
+                🔐 Admin Login
+              </button>
+            )}
+            {admin && (
+              <button className="drawer-item" onClick={() => { setPage("admin"); setMenuOpen(false); }}>
+                ⚙️ Admin Panel
+              </button>
+            )}
             <button className="drawer-item" onClick={() => { setPage("account"); setMenuOpen(false); }}>
               👤 Account
             </button>
             {user ? (
               <button className="drawer-item drawer-logout" onClick={handleLogout}>
                 🚪 Logout ({user.username})
+              </button>
+            ) : admin ? (
+              <button className="drawer-item drawer-logout" onClick={handleLogout}>
+                🚪 Admin Logout
               </button>
             ) : (
               <button className="drawer-item drawer-login" onClick={() => { setShowAuth(true); setMenuOpen(false); }}>
@@ -124,7 +139,6 @@ export default function Navbar({
         </div>
       )}
 
-      {/* Backdrop */}
       {menuOpen && <div className="drawer-backdrop" onClick={() => setMenuOpen(false)} />}
     </>
   );

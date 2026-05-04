@@ -86,6 +86,7 @@ export default function App() {
         setShowAuth={setShowAuth}
         setShowAdminLogin={setShowAdminLogin}
         onLogout={handleLogout}
+        admin={admin}
       />
 
       {showAuth && (
