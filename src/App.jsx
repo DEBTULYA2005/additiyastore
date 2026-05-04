@@ -103,7 +103,7 @@ export default function App() {
       )}
 
       {page === "home" && (
-        <Home products={products} addToCart={handleAddToCart} />
+        <Home products={products} addToCart={handleAddToCart} admin={admin}/>
       )}
 
       {page === "account" && (
