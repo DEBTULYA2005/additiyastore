@@ -13,9 +13,12 @@ export default function Admin({ products, setProducts, admin }) {
   "Sharee",
   "Kurti",
   "Dupatta Sets",
-  "Sleepwear",
-  "Lehengas",
-  "Blouses",
+  "Skirt Top",
+  "Plazzo Top",
+  "Cord Set",
+  "Biyer Kulo",
+  "Biyer Mukut",
+  "Gachkouto",
 ];
 
   // ================= LOAD USERS =================
