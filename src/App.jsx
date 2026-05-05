@@ -5,7 +5,7 @@ import AdminLoginModal from "./components/AdminLoginModal";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
 import Admin from "./pages/Admin";
-import AboutUs from "./pages/AboutUs";   // ← ADD THIS
+import AboutUs from "./pages/Aboutus";   // ← ADD THIS
 import Footer from "./components/Footer";
 
 import { getProducts, addToCart as addToCartAPI } from "./api";
