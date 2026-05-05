@@ -5,6 +5,7 @@ import AdminLoginModal from "./components/AdminLoginModal";
 import Home from "./pages/Home";
 import Account from "./pages/Account";
 import Admin from "./pages/Admin";
+import AboutUs from "./pages/AboutUs";   // ← ADD THIS
 import Footer from "./components/Footer";
 
 import { getProducts, addToCart as addToCartAPI } from "./api";
@@ -15,12 +16,14 @@ export default function App() {
   const [showAuth, setShowAuth]       = useState(false);
   const [showAdminLogin, setShowAdminLogin] = useState(false);
   const [page, setPage] = useState(() => {
-  const savedPage = localStorage.getItem("page");
-  const savedAdmin = localStorage.getItem("admin");
-  // only restore admin page if admin data exists
-  if (savedPage === "admin" && !savedAdmin) return "home";
-  return savedPage || "home";
-});
+    const savedPage = localStorage.getItem("page");
+    const savedAdmin = localStorage.getItem("admin");
+    // only restore admin page if admin data exists
+    if (savedPage === "admin" && !savedAdmin) return "home";
+    // don't restore about page on refresh (optional — remove if you want to restore it)
+    if (savedPage === "about") return "home";
+    return savedPage || "home";
+  });
   const [products, setProducts]       = useState([]);
   const [cart, setCart]               = useState(null);
   const [filter, setFilter]           = useState("all");
@@ -30,7 +33,7 @@ export default function App() {
     getProducts(filter).then(setProducts);
   }, [filter]);
 
-  // ── Restore admin page on refresh ──
+  // ── Persist page in localStorage ──
   useEffect(() => {
     localStorage.setItem("page", page);
   }, [page]);
@@ -71,7 +74,6 @@ export default function App() {
     }
     const updatedCart = await addToCartAPI(product.id);
     setCart(updatedCart);
-
     setPage("account");
   };
 
@@ -103,15 +105,10 @@ export default function App() {
         />
       )}
 
-      {page === "home" && (
-        <Home products={products} addToCart={handleAddToCart} />
-      )}
-
-      {page === "account" && (
-        <Account user={user} cart={cart} />
-      )}
-
-      {page === "admin" && admin && (
+      {page === "home"    && <Home products={products} addToCart={handleAddToCart} />}
+      {page === "account" && <Account user={user} cart={cart} />}
+      {page === "about"   && <AboutUs />}   {/* ← ADD THIS */}
+      {page === "admin"   && admin && (
         <Admin
           products={products}
           setProducts={setProducts}
@@ -119,7 +116,7 @@ export default function App() {
         />
       )}
 
-      <Footer />
+      <Footer setPage={setPage} />   {/* ← pass setPage to Footer */}
     </div>
   );
 }

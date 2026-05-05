@@ -1,4 +1,4 @@
-export default function Footer() {
+export default function Footer({ setPage }) {
   return (
     <footer className="footer">
 
@@ -25,7 +25,13 @@ export default function Footer() {
         {/* Column 3 */}
         <div className="footer-col">
           <h4>Company</h4>
-          <p>About Us</p>
+          {/* ✅ Calls setPage("about") — no React Router needed */}
+          <p
+            onClick={() => setPage("about")}
+            style={{ cursor: "pointer" }}
+          >
+            About Us
+          </p>
           <p>Careers</p>
           <p>Privacy Policy</p>
           <p>Terms</p>
