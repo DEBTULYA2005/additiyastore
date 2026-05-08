@@ -474,8 +474,8 @@ export default function AboutUs() {
             {team.map((m) => (
               <div className="team-card" key={m.name}>
                 <img
-                  src={member.image}
-                  alt={member.name}
+                  src={m.image}
+                  alt={m.name}
                   className="team-avatar"
                   style={{ objectFit: "cover", borderRadius: "50%" }}
                 />
