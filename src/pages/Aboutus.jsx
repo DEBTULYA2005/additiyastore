@@ -1,5 +1,8 @@
 import { useEffect, useRef } from "react";
 
+import ronitaImg from "../assets/Ronita.jpeg";
+import debtulyaImg from "../assets/me.jpeg";
+
 const styles = `
   @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=DM+Sans:wght@300;400;500&display=swap');
 
@@ -358,8 +361,8 @@ const values = [
 ];
 
 const team = [
-  { initial: "R", name: "Ronita Roy", role: "Founder & CEO" },
-  { initial: "D", name: "Debtulya Sarkar",      role: "Web-Developer" },
+  { image: ronitaImg, name: "Ronita Roy", role: "Founder & CEO" },
+  { image: debtulyaImg, name: "Debtulya Sarkar",      role: "Web-Developer" },
 ];
 
 export default function AboutUs() {
@@ -470,7 +473,12 @@ export default function AboutUs() {
           <div className="team-grid">
             {team.map((m) => (
               <div className="team-card" key={m.name}>
-                <div className="team-avatar">{m.initial}</div>
+                <img
+                  src={member.image}
+                  alt={member.name}
+                  className="team-avatar"
+                  style={{ objectFit: "cover", borderRadius: "50%" }}
+                />
                 <p className="team-name">{m.name}</p>
                 <p className="team-role">{m.role}</p>
               </div>
