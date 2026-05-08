@@ -23,7 +23,9 @@ export default function ProductList({ products, addToCart, admin }) {
           >
             <div className="image-wrapper">
               <img src={p.image} alt={p.name} />
-              <span className="more-badge">+1 More</span>
+              {p.images.length > 0 && (
+                <span className="more-badge">+{p.images.length} More</span>
+              )}
             </div>
             <h3 className="product-title">{p.name}</h3>
             <div className="price-section">
