@@ -80,12 +80,12 @@ const styles = `
   .btn-gold:hover { background: #EDD9A3; transform: translateY(-1px); }
 
   .hero-right {
-    background: #2A2218;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-height: 300px;
-  }
+  background: #2C2218;   /* slightly warmer dark brown like the image */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
 
   /* STATS */
   .stats-bar {
@@ -327,23 +327,54 @@ const ShieldIcon = () => (
 );
 
 const Emblem = () => (
-  <svg viewBox="0 0 400 420" fill="none" style={{ width: "80%", maxWidth: 380, opacity: 0.9 }}>
-    <circle cx="200" cy="210" r="160" stroke="#C9A84C" strokeOpacity="0.12" strokeWidth="1"/>
-    <circle cx="200" cy="210" r="120" stroke="#C9A84C" strokeOpacity="0.18" strokeWidth="1"/>
-    <rect x="140" y="130" width="120" height="160" rx="4" fill="#C9A84C" fillOpacity="0.07"
-      stroke="#C9A84C" strokeOpacity="0.35" strokeWidth="1"/>
-    <rect x="154" y="144" width="92" height="132" rx="2" fill="none"
-      stroke="#C9A84C" strokeOpacity="0.18" strokeWidth="0.5"/>
-    <text x="200" y="232" fontFamily="Georgia, serif" fontSize="72" fill="#C9A84C"
-      fillOpacity="0.85" textAnchor="middle" fontWeight="bold">A</text>
-    <circle cx="126" cy="150" r="2.5" fill="#C9A84C" fillOpacity="0.5"/>
-    <circle cx="274" cy="172" r="2" fill="#C9A84C" fillOpacity="0.4"/>
-    <circle cx="150" cy="310" r="2" fill="#C9A84C" fillOpacity="0.35"/>
-    <circle cx="258" cy="296" r="3" fill="#C9A84C" fillOpacity="0.45"/>
-    <text x="200" y="332" fontFamily="sans-serif" fontSize="9" fill="#C9A84C"
-      fillOpacity="0.5" textAnchor="middle" letterSpacing="4">ADDITIYASTORE</text>
-    <line x1="155" y1="325" x2="172" y2="325" stroke="#C9A84C" strokeOpacity="0.3" strokeWidth="0.5"/>
-    <line x1="228" y1="325" x2="245" y2="325" stroke="#C9A84C" strokeOpacity="0.3" strokeWidth="0.5"/>
+  <svg viewBox="0 0 420 420" fill="none" style={{ width: "80%", maxWidth: 380 }}>
+    {/* Background circle — outer */}
+    <circle cx="210" cy="210" r="195" stroke="#C9A84C" strokeOpacity="0.15" strokeWidth="1"/>
+    
+    {/* Background circle — inner */}
+    <circle cx="210" cy="210" r="148" stroke="#C9A84C" strokeOpacity="0.22" strokeWidth="1"/>
+
+    {/* Card shape */}
+    <rect x="138" y="118" width="144" height="188" rx="6"
+      fill="#C9A84C" fillOpacity="0.08"
+      stroke="#C9A84C" strokeOpacity="0.55" strokeWidth="1.2"/>
+    
+    {/* Card inner border */}
+    <rect x="148" y="128" width="124" height="168" rx="3"
+      fill="none"
+      stroke="#C9A84C" strokeOpacity="0.25" strokeWidth="0.8"/>
+
+    {/* Big A */}
+    <text x="210" y="248"
+      fontFamily="Georgia, 'Times New Roman', serif"
+      fontSize="98"
+      fill="#C9A84C"
+      fillOpacity="0.92"
+      textAnchor="middle"
+      fontWeight="bold">A</text>
+
+    {/* Decorative dots around the card */}
+    <circle cx="128" cy="148" r="3" fill="#C9A84C" fillOpacity="0.55"/>
+    <circle cx="292" cy="168" r="2.5" fill="#C9A84C" fillOpacity="0.45"/>
+    <circle cx="148" cy="322" r="2.5" fill="#C9A84C" fillOpacity="0.4"/>
+    <circle cx="272" cy="305" r="3" fill="#C9A84C" fillOpacity="0.5"/>
+    <circle cx="108" cy="230" r="2" fill="#C9A84C" fillOpacity="0.3"/>
+    <circle cx="312" cy="250" r="2" fill="#C9A84C" fillOpacity="0.3"/>
+
+    {/* ADDITIYASTORE text */}
+    <text x="210" y="355"
+      fontFamily="'DM Sans', sans-serif"
+      fontSize="10"
+      fill="#C9A84C"
+      fillOpacity="0.65"
+      textAnchor="middle"
+      letterSpacing="5">ADDITIYASTORE</text>
+
+    {/* Short lines beside the text */}
+    <line x1="108" y1="349" x2="132" y2="349"
+      stroke="#C9A84C" strokeOpacity="0.35" strokeWidth="0.7"/>
+    <line x1="288" y1="349" x2="312" y2="349"
+      stroke="#C9A84C" strokeOpacity="0.35" strokeWidth="0.7"/>
   </svg>
 );
 
