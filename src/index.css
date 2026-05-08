@@ -1016,3 +1016,112 @@ td button { margin-right: 5px; padding: 6px 10px; min-height: 36px; font-size: 1
 
   .image-wrapper { height: 220px; }
 }
+
+/* ================= IMAGE SLIDER (ProductModal) ================= */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.45);
+  color: white;
+  border: none;
+  border-radius: 50%;
+  width: 38px;
+  height: 38px;
+  font-size: 22px;
+  line-height: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 5;
+  padding: 0;
+}
+.slider-btn:hover { background: rgba(0,0,0,0.7); transform: translateY(-50%); }
+.slider-btn-left  { left: 10px; }
+.slider-btn-right { right: 10px; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 6px;
+  z-index: 5;
+}
+
+.slider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.5);
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.slider-dot.active { background: white; }
+
+.slider-counter {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  background: rgba(0,0,0,0.45);
+  color: white;
+  font-size: 12px;
+  padding: 3px 9px;
+  border-radius: 20px;
+  z-index: 5;
+}
+
+/* Thumbnail strip */
+.slider-thumbs {
+  display: flex;
+  gap: 8px;
+  padding: 10px 16px;
+  background: white;
+  overflow-x: auto;
+  scrollbar-width: none;
+}
+.slider-thumbs::-webkit-scrollbar { display: none; }
+
+.slider-thumb {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 8px;
+  border: 2px solid transparent;
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.2s;
+}
+.slider-thumb.active { border-color: #2e7d32; }
+
+/* ================= PRODUCT DETAIL ROWS (ProductModal) ================= */
+.modal-details {
+  margin: 12px 0 16px;
+  border-top: 1px solid #f0f0f0;
+  border-bottom: 1px solid #f0f0f0;
+  padding: 12px 0;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.modal-detail-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 14px;
+}
+
+.detail-label {
+  color: #888;
+  font-weight: 500;
+  min-width: 90px;
+}
+
+.detail-value {
+  color: #222;
+  font-weight: 600;
+  text-align: right;
+}

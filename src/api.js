@@ -139,3 +139,17 @@ export const checkout = async () => {
   });
   return res.json();
 };
+
+// Upload extra images for a product (after product is created/updated)
+export const uploadProductImages = async (productId, imageFiles) => {
+  const token = localStorage.getItem("token");
+  const formData = new FormData();
+  imageFiles.forEach((file) => formData.append("images", file));
+
+  const res = await fetch(`${BASE_URL}/products/${productId}/images/`, {
+    method: "POST",
+    headers: { Authorization: `Token ${token}` },
+    body: formData,
+  });
+  return res.json();
+};
