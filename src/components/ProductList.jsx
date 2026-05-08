@@ -28,8 +28,12 @@ export default function ProductList({ products, addToCart, admin }) {
             <h3 className="product-title">{p.name}</h3>
             <div className="price-section">
               <span className="price">₹{p.price}</span>
-              <span className="old-price">₹{Math.round(p.price * 1.2)}</span>
-              <span className="discount">20% off</span>
+              {p.old_price && (
+              <span className="old-price">₹{Math.round(p.old_price)}</span>
+              )}
+            {p.discount > 0 && (
+              <span className="discount">{Math.round(p.discount)}% off</span>
+              )}
             </div>
             <div className="rating-section">
               <span className="rating">3.8 ★</span>

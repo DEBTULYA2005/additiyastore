@@ -15,7 +15,7 @@ export default function Admin({ products, setProducts, admin }) {
   const emptyForm = {
     name: "", price: "", category: "",
     material: "", length: "", neck: "",
-    size_options: "", colour_options: "", description: "",
+    size_options: "", colour_options: "", description: "", discount: "",
   };
   const [form, setForm] = useState(emptyForm);
 
@@ -87,7 +87,7 @@ export default function Admin({ products, setProducts, admin }) {
       name: product.name || "", price: product.price || "", category: product.category || "",
       material: product.material || "", length: product.length || "", neck: product.neck || "",
       size_options: product.size_options || "", colour_options: product.colour_options || "",
-      description: product.description || "",
+      description: product.description || "", discount: product.discount || "",
     });
     setImagePreview(product.image || "");
     setImageFile(null); setExtraFiles([]); setExtraPreviews([]);
@@ -127,17 +127,62 @@ export default function Admin({ products, setProducts, admin }) {
   // ── Shared form fields JSX ──
   const FormFields = () => (
     <>
-      <input name="name"           placeholder="Product name *"              value={form.name}           onChange={handleChange} />
-      <input name="price"          placeholder="Price *"        type="number" value={form.price}          onChange={handleChange} />
+      <input name="name"           
+        placeholder="Product name *"              
+        value={form.name}           
+        onChange={handleChange} 
+      />
+
+      <input name="price"          
+        placeholder="Price *"        
+        type="number" value={form.price}          
+        onChange={handleChange} 
+      />
+
+      <input
+        name="discount"
+        placeholder="Discount % (e.g. 20 for 20% off)"
+        type="number"
+        min="0" max="90"
+        value={form.discount}
+        onChange={handleChange}
+      />
+
       <select name="category" value={form.category} onChange={handleChange}>
         <option value="">Select Category *</option>
         {categories.map((c) => <option key={c} value={c}>{c}</option>)}
       </select>
-      <input name="material"       placeholder="Material (e.g. Heavy Malai Silk)"  value={form.material}       onChange={handleChange} />
-      <input name="length"         placeholder="Length (e.g. Long length)"          value={form.length}         onChange={handleChange} />
-      <input name="neck"           placeholder="Neck (e.g. V neck rise collar)"     value={form.neck}           onChange={handleChange} />
-      <input name="size_options"   placeholder="Size options (e.g. S, M, L, XL)"   value={form.size_options}   onChange={handleChange} />
-      <input name="colour_options" placeholder="Colour options (e.g. Red, Blue)"   value={form.colour_options} onChange={handleChange} />
+
+      <input name="material"       
+        placeholder="Material (e.g. Heavy Malai Silk)"  
+        value={form.material}       
+        onChange={handleChange} 
+      />
+
+      <input name="length"         
+        placeholder="Length (e.g. Long length)"          
+        value={form.length}         
+        onChange={handleChange} 
+      />
+
+      <input name="neck"           
+        placeholder="Neck (e.g. V neck rise collar)"     
+        value={form.neck}           
+        onChange={handleChange} 
+      />
+
+      <input name="size_options"   
+        placeholder="Size options (e.g. S, M, L, XL)"   
+        value={form.size_options}   
+        onChange={handleChange} 
+      />
+
+      <input name="colour_options" 
+        placeholder="Colour options (e.g. Red, Blue)"   
+        value={form.colour_options} 
+        onChange={handleChange} 
+      />
+      
       <textarea
         name="description"
         placeholder="Description..."

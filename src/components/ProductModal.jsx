@@ -87,8 +87,12 @@ export default function ProductModal({ product, products, onClose, addToCart, ad
 
           <div className="modal-price-row">
             <span className="modal-price">₹{product.price}</span>
-            <span className="modal-old-price">₹{Math.round(product.price * 1.2)}</span>
-            <span className="modal-discount">20% off</span>
+            {product.old_price && (
+            <span className="modal-old-price">₹{Math.round(product.old_price)}</span>
+          )}
+          {product.discount > 0 && (
+            <span className="modal-discount">{Math.round(product.discount)}% off</span>
+          )}
           </div>
 
           <div className="modal-rating-row">
@@ -169,8 +173,12 @@ export default function ProductModal({ product, products, onClose, addToCart, ad
                   <h3 className="product-title">{p.name}</h3>
                   <div className="price-section">
                     <span className="price">₹{p.price}</span>
-                    <span className="old-price">₹{Math.round(p.price * 1.2)}</span>
-                    <span className="discount">20% off</span>
+                    {p.old_price && (
+                    <span className="modal-old-price">₹{Math.round(p.old_price)}</span>
+                  )}
+                  {p.discount > 0 && (
+                    <span className="modal-discount">{Math.round(p.discount)}% off</span>
+                  )}
                   </div>
                   <div className="rating-section">
                     <span className="rating">3.8 ★</span>
