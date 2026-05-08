@@ -358,9 +358,8 @@ const values = [
 ];
 
 const team = [
-  { initial: "A", name: "Aditiya Sharma", role: "Founder & CEO" },
-  { initial: "P", name: "Priya Mehta",    role: "Head of Products" },
-  { initial: "R", name: "Rahul Das",      role: "Customer Experience" },
+  { initial: "R", name: "Ronita Roy", role: "Founder & CEO" },
+  { initial: "D", name: "Debtulya Sarkar",      role: "Web-Developer" },
 ];
 
 export default function AboutUs() {
