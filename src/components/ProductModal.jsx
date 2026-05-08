@@ -84,6 +84,9 @@ export default function ProductModal({ product, products, onClose, addToCart, ad
         {/* Info */}
         <div className="modal-info">
           <h2>{product.name}</h2>
+          {product.description && (
+            <p className="modal-description">{product.description}</p>
+          )}
 
           <div className="modal-price-row">
             <span className="modal-price">₹{product.price}</span>
@@ -138,9 +141,7 @@ export default function ProductModal({ product, products, onClose, addToCart, ad
             )}
           </div>
 
-          {product.description && (
-            <p className="modal-description">{product.description}</p>
-          )}
+          
 
           {!admin && (
             <button className="modal-add-btn" onClick={() => addToCart(product)}>
